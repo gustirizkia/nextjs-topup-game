@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 export default async function page() {
   let data: any[] = [];
   await axios
-    .get("https://fakestoreapi.com/products")
+    .get("https://api.escuelajs.co/api/v1/products")
     .then((ress) => {
       data = ress.data;
     })
@@ -29,37 +29,6 @@ export default async function page() {
 
   return (
     <>
-      <Head>
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://metatags.io/" />
-        <meta
-          property="og:title"
-          content="Meta Tags — Preview, Edit and Generate"
-        />
-        <meta
-          property="og:description"
-          content="With Meta Tags you can edit and experiment with your content then preview how your webpage will look on Google, Facebook, Twitter and more!"
-        />
-        <meta
-          property="og:image"
-          content="https://metatags.io/images/meta-tags.png"
-        />
-
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://metatags.io/" />
-        <meta
-          property="twitter:title"
-          content="Meta Tags — Preview, Edit and Generate"
-        />
-        <meta
-          property="twitter:description"
-          content="With Meta Tags you can edit and experiment with your content then preview how your webpage will look on Google, Facebook, Twitter and more!"
-        />
-        <meta
-          property="twitter:image"
-          content="https://metatags.io/images/meta-tags.png"
-        />
-      </Head>
       <div className="px-3 md:px-32 mt-3">
         <div className="grid grid-flow-row grid-cols-12 gap-6">
           <div className="md:col-span-3 col-span-12">
@@ -82,7 +51,7 @@ export default async function page() {
               </div>
             </div>
           </div>
-          <div className="md:col-span-6 col-span-12">
+          <div className="md:col-span-6 col-span-12 md:mb-20 mb-3">
             <div className="bg-white p-4 rounded-lg ">
               <h1 className="text-xl">Pilih Diamond</h1>
               <div className="mt-3">

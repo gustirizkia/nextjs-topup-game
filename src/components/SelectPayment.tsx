@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 export default function SelectPayment() {
   const usePayment = UsePaymentStore();
   const [Data, SetData] = useState([]);
-  const [SelectData, SetSelectData] = useState(null);
+  const [SelectData, SetSelectData] = useState("0");
 
   useEffect(() => {
     getData();
@@ -14,7 +14,7 @@ export default function SelectPayment() {
 
   const getData = () => {
     axios
-      .get("https://fakestoreapi.com/products/categories")
+      .get("https://api.escuelajs.co/api/v1/categories")
       .then((ress) => {
         SetData(ress.data);
       })
@@ -24,7 +24,7 @@ export default function SelectPayment() {
   };
 
   const handleSelectPayment = (param: any) => {
-    SetSelectData(param);
+    SetSelectData(param.id);
   };
 
   return (
@@ -34,18 +34,18 @@ export default function SelectPayment() {
       </div>
 
       <div className="flex flex-wrap ">
-        {Data.map((item, index) => {
+        {Data.map((item: any, index) => {
           return (
             <div
               className={`bg-white border p-2 rounded mr-3 mb-3 cursor-pointer ${
-                item === SelectData
+                parseInt(item.id) === parseInt(SelectData)
                   ? "border-2 border-primary bg-primary bg-opacity-20"
                   : " "
               }`}
               key={index}
               onClick={() => handleSelectPayment(item)}
             >
-              {item}
+              {item.name}
             </div>
           );
         })}
